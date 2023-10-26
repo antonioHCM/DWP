@@ -1,9 +1,7 @@
 <php?
 class ProductController {
 
-    getAllProducts(
-
-    )
+    getAllProducts();
 
     getProductsById(
 
