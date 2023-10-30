@@ -1,4 +1,4 @@
-<php?
+<?PHP
 class ProductController {
 
     getAllProducts();
@@ -12,4 +12,3 @@ class ProductController {
     )
 }
 
->
