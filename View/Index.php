@@ -1,7 +1,7 @@
 Index
 <?php
 
-require_once("DataAccess/DBconnector.php");
+require_once __DIR__.'/../DataAccess/DBconnector.php';
 
 $query = "SELECT * FROM Product";
 
