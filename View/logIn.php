@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    Home page
+    Log in Page
 </body>
 </html>

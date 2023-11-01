@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    Home page
+    Contact page
 </body>
 </html>
