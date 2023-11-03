@@ -3,17 +3,23 @@ Index
 
 require_once __DIR__.'/../DataAccess/DBconnector.php';
 
-$query = "SELECT * FROM Product";
+$db = connectToDatabase();
 
-$res = $db->query($query,   PDO::FETCH_ASSOC);
+if ($db !== null) {
 
-foreach ($res as $row) {
-    echo $row["productID"] ." ";
-    echo $row["categoryID"] ." ";
-    echo $row["productName"] ." ";
-    echo $row["brand"] ." ";
-    echo $row["stockQuantity"] ." ";
-    echo $row["price"] ." ";
-    echo $row["description"] ."<br>";
-}
+    $query = 'SELECT * FROM Product';
+    $statement = $db->query($query);
+
+    foreach ($statement as $row) {
+        echo $row["productID"] ." ";
+        echo $row["categoryID"] ." ";
+        echo $row["productName"] ." ";
+        echo $row["brand"] ." ";
+        echo $row["stockQuantity"] ." ";
+        echo $row["price"] ." ";
+        echo $row["description"] ."<br>";
+    }
+    
+} 
+$db->dbClose();
 ?>
