@@ -1,25 +1,13 @@
 Index
 <?php
 
-require_once __DIR__.'/../DataAccess/DBconnector.php';
+var_dump(__DIR__);
 
-$db = connectToDatabase();
+require_once 'Controller/ProductController.php';
 
-if ($db !== null) {
+$controller = new ProductController();
+$controller->displayProducts();
+$controller->closeConnection();
 
-    $query = 'SELECT * FROM Product';
-    $statement = $db->query($query);
 
-    foreach ($statement as $row) {
-        echo $row["productID"] ." ";
-        echo $row["categoryID"] ." ";
-        echo $row["productName"] ." ";
-        echo $row["brand"] ." ";
-        echo $row["stockQuantity"] ." ";
-        echo $row["price"] ." ";
-        echo $row["description"] ."<br>";
-    }
-    
-} 
-$db->dbClose();
 ?>

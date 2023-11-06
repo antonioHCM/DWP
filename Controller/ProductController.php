@@ -1,14 +1,26 @@
-<?PHP
+<?php
+
+require_once "Model/ProductModel.php";
+
 class ProductController {
+    private $model;
 
-    getAllProducts();
+    function __construct() {
+        $this->model = new ProductModel();
+    }
 
-    getProductsById(
+    function getProducts() {
+        return $this->model->getProducts();
+    }
 
-    )
-    
-    addProduct(
-        
-    )
+    function displayProducts() {
+        $products = $this->getProducts();
+        require "View/productView.php";
+    }
+
+    function closeConnection() {
+        $this->model->closeConnection();
+    }
 }
 
+?>
