@@ -8,6 +8,10 @@ get('/home','View/home.php');
 
 get('/contact','View/contact.php');
 
+get('/register','View/register.php');
+
+post('/register','View/register.php');
+
 get('/logIn','View/logIn.php');
 
 any('/404', 'View/404.php');

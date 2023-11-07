@@ -2,7 +2,7 @@
 
 require_once 'constants.php';
 class DBConnector {
-    private $db;
+    public $db;
 
     function __construct() {
         try {

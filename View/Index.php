@@ -11,3 +11,4 @@ $controller->closeConnection();
 
 
 ?>
+<a href="register">Register</a>
