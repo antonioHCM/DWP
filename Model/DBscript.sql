@@ -2,23 +2,23 @@ DROP DATABASE IF  EXISTS FruitShopDB;
 CREATE DATABASE FruitShopDB;
 USE FruitShopDB;
 
-CREATE TABLE Address(
+CREATE TABLE Address (
     postalCode INT NOT NULL PRIMARY KEY,
     city VARCHAR(50),
     street VARCHAR(150),
     country VARCHAR(50)
-)ENGINE=InnoDB;
+) ENGINE=InnoDB;
 
-CREATE TABLE `User`(
-    userID INT AUTO_INCREMENT NOT NULL  PRIMARY KEY,
+CREATE TABLE User (
+    userID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     postalCode INT,
-    FOREIGN KEY (postalCode) REFERENCES Address (postalCode),
     firstName VARCHAR(50),
     lastName VARCHAR(50),
     passwords VARCHAR(50),
     email VARCHAR(100),
-    admin BIT
-)ENGINE=InnoDB;
+    admin BIT,
+    FOREIGN KEY (postalCode) REFERENCES Address(postalCode)
+) ENGINE=InnoDB;
 
 CREATE TABLE Category(
     categoryID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,

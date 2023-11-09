@@ -20,6 +20,9 @@ class DBConnector {
     function closeConnection() {
         $this->db = null;
     }
+    function prepare($statement) {
+        return $this->db->prepare($statement);
+    }
 }
 
 ?>
