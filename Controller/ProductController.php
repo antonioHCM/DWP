@@ -15,7 +15,7 @@ class ProductController {
 
     function displayProducts() {
         $products = $this->getProducts();
-        require "View/productView.php";
+        require "View/product.php";
     }
 
     function closeConnection() {

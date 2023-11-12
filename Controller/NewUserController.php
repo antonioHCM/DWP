@@ -12,11 +12,11 @@ class NewUserController {
         try {
             return $this->userModel->createUser($firstName, $lastName, $password, $email, $admin);
         } catch (PDOException $e) {
-            // Handle database errors (e.g., connection issues, SQL errors)
+            //Database errors 
             echo 'Registration failed due to a database error: ' . $e->getMessage();
             return false;
         } catch (Exception $e) {
-            // Handle other exceptions (if any)
+            //Other exceptions 
             echo 'Registration failed due to an unexpected error: ' . $e->getMessage();
             return false;
         }

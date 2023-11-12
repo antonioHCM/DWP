@@ -14,6 +14,9 @@ post('/register','View/register.php');
 
 get('/logIn','View/logIn.php');
 
+get('/product','View/product.php');
+
 any('/404', 'View/404.php');
+
 
 ?>

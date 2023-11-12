@@ -1,7 +1,6 @@
 Index
 <?php
 
-var_dump(__DIR__);
 
 require_once 'Controller/ProductController.php';
 
@@ -11,4 +10,5 @@ $controller->closeConnection();
 
 
 ?>
+
 <a href="register">Register</a>

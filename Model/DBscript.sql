@@ -105,3 +105,4 @@ insert into Product (categoryID, productName, brand, stockQuantity, price, descr
 insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (1, 'Blueberry', 'TENDERWRAP', 34, 88, 'Blue blueberrys');
 insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (2, 'Peaches', 'DIORSNOW ', 59, 9, 'Peaches from Portugal');
 insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (3, 'Lemons', 'Tussin ', 57, 80, 'The yellow limes');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (3, 'Gomu-Gomu no mi', 'Akumua no mi ', 1, 5600000, 'Tastes like rubber');
