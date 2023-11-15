@@ -14,7 +14,7 @@ CREATE TABLE User (
     postalCode INT,
     firstName VARCHAR(50),
     lastName VARCHAR(50),
-    passwords VARCHAR(50),
+    passwords VARCHAR(150),
     email VARCHAR(100),
     admin BIT,
     FOREIGN KEY (postalCode) REFERENCES Address(postalCode)

@@ -12,3 +12,4 @@ $controller->closeConnection();
 ?>
 
 <a href="register">Register</a>
+<a href="login">Log in</a>

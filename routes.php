@@ -12,7 +12,9 @@ get('/register','View/register.php');
 
 post('/register','View/register.php');
 
-get('/logIn','View/logIn.php');
+post('/login','View/login.php');
+
+get('/login','View/login.php');
 
 get('/product','View/product.php');
 
