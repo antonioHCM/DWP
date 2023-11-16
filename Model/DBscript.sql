@@ -34,7 +34,8 @@ CREATE TABLE Product(
     brand VARCHAR(50),
     stockQuantity INT,
     price FLOAT,
-    description TEXT
+    description TEXT,
+    img VARCHAR(200)
 )ENGINE=InnoDB;
 
 CREATE TABLE `Order`(
@@ -95,14 +96,14 @@ insert into Category (categoryName, description) values ('Melons', 'A melon is a
 insert into Category (categoryName, description) values ('Tropical fruit', ' Fruits that typically grow in warm tropical climates or equatorial areas.');
 insert into Category (categoryName, description) values ('Cores', 'Fruits with a huge seed inside');
 
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (1, 'Grapes', 'Oxaprozin', 44, 48, 'GREEN GRAPES FROM SOMEWHERE');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (2, 'Pear', 'Famotidine', 17, 35, 'Green preas from somewhere else');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (3, 'Grapefruit', 'MARK', 88, 27, 'Sour grapefruits');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (4, 'Pixie melon', 'PREP', 40, 92, 'The swetest melons I have tasted');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (1, 'Gooseberry', 'Carbidopa', 44, 34, 'I dont even know what a goseberry is');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (5, 'Coconut', 'HyQvia', 98, 59, 'No discription needed');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (6, 'Apple', 'Orajel ', 84, 97, 'Apples are nice');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (1, 'Blueberry', 'TENDERWRAP', 34, 88, 'Blue blueberrys');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (2, 'Peaches', 'DIORSNOW ', 59, 9, 'Peaches from Portugal');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (3, 'Lemons', 'Tussin ', 57, 80, 'The yellow limes');
-insert into Product (categoryID, productName, brand, stockQuantity, price, description) values (3, 'Gomu-Gomu no mi', 'Akumua no mi ', 1, 5600000, 'Tastes like rubber');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (1, 'Grapes', 'Oxaprozin', 44, 48, 'GREEN GRAPES FROM SOMEWHERE','/View/Images/Grapes.webp');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (2, 'Pear', 'Famotidine', 17, 35, 'Green preas from somewhere else', '/View/Images/Pear.jpg');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (3, 'Grapefruit', 'MARK', 88, 27, 'Sour grapefruits', '/View/Images/Grapefruit.jpg');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (4, 'Pixie melon', 'PREP', 40, 92, 'The swetest melons I have tasted', '/View/Images/Pixie melon.webp');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (1, 'Gooseberry', 'Carbidopa', 44, 34, 'I dont even know what a goseberry is', '/View/Images/Gooseberry.jpg');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (5, 'Coconut', 'HyQvia', 98, 59, 'No discription needed', '/View/Images/Coconut.jpg');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (6, 'Apple', 'Orajel ', 84, 97, 'Apples are nice', '/View/Images/Apple.webp');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (1, 'Blueberry', 'TENDERWRAP', 34, 88, 'Blue blueberrys', '/View/Images/Blueberry.jpg');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (2, 'Peaches', 'DIORSNOW ', 59, 9, 'Peaches from Portugal', '/View/Images/Peaches.jpg');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (3, 'Lemons', 'Tussin ', 57, 80, 'The yellow limes', '/View/Images/Lemons.webp');
+insert into Product (categoryID, productName, brand, stockQuantity, price, description, img) values (3, 'Gomu-Gomu no mi', 'Akuma no mi ', 1, 5600000, 'Tastes like rubber', '/View/Images/Gomu-Gomunomi.jpg');

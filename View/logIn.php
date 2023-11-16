@@ -6,7 +6,10 @@
         $db = new DBConnector();
         $controller = new LoginController($db);
         $controller->submitLogin();
+
     }
+
+    
 
 ?>
 <!DOCTYPE html>
@@ -18,15 +21,6 @@
 </head>
 <body>
     <h2>Login</h2>
-    
-    <?php
-
-    
-        // Display error message if login fails
-        if (isset($loginResult) && !$loginResult) {
-            echo '<p style="color: red;">Login failed. Please check your credentials and try again.</p>';
-        }
-    ?>
 
     <form method="post" action="login">
         <label for="email">Email:</label>
@@ -37,5 +31,6 @@
 
         <input type="submit" value="Login">
     </form>
+    
 </body>
 </html>

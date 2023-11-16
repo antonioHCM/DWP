@@ -13,7 +13,7 @@ class LoginController {
 
             if ($userData) {
                 // Login successful
-                echo "Login successful!";
+                echo '<script>alert("You are logged in!"); window.location.href = "/register";</script>';
                 return $userData;
                 
             } else {
@@ -38,9 +38,9 @@ class LoginController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            echo "Email: $email, Password: $password";
             
-            $loginResult = $this->loginUser($email, $password);
+            
+            return $loginResult = $this->loginUser($email, $password);
     
             
         }
