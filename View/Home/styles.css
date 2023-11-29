@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a.active {
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f2f2f2;
+}
+.register-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: #45a049;
+}
+.featured-products-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    align-content: center;
+}
+
+.product {
+    width: 48%;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

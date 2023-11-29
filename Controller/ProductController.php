@@ -13,9 +13,13 @@ class ProductController {
         return $this->model->getProducts();
     }
 
+    function getFeaturedProducts() {
+        return $this->model->getFeaturedProducts();
+    }
+
     function displayProducts() {
         $products = $this->getProducts();
-        require "View/product.php";
+        require "View/Product/product.php";
     }
 
     function closeConnection() {

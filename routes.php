@@ -2,21 +2,21 @@
 
 require_once __DIR__.'/router.php';
 
-get('/','View/index.php');
+get('/','View/Home/index.php');
 
-get('/home','View/home.php');
+post('/','View/Home/index.php');
 
-get('/contact','View/contact.php');
+get('/contact','View/Contact/contact.php');
 
-get('/register','View/register.php');
+get('/register','View/Register/register.php');
 
-post('/register','View/register.php');
+post('/register','View/Register/register.php');
 
-post('/login','View/login.php');
+post('/login','View/Login/login.php');
 
-get('/login','View/login.php');
+get('/login','View/Login/login.php');
 
-get('/product','View/product.php');
+get('/product','View/Product/product.php');
 
 any('/404', 'View/404.php');
 

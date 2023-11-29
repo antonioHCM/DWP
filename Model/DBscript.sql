@@ -33,7 +33,7 @@ CREATE TABLE Product(
     productName VARCHAR(150) NOT NULL,
     brand VARCHAR(50),
     stockQuantity INT,
-    price FLOAT,
+    price Decimal,
     description TEXT,
     img VARCHAR(200)
 )ENGINE=InnoDB;
