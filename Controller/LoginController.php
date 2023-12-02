@@ -13,7 +13,7 @@ class LoginController {
 
             if ($userData) {
                 // Login successful
-                echo '<script>alert("You are logged in!"); window.location.href = "/register";</script>';
+                echo "You are logged in!";
                 return $userData;
                 
             } else {

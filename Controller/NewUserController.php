@@ -34,6 +34,8 @@ class NewUserController {
 
         if ($registrationResult) {
             echo "Registration successful!";
+            header("Location: /login");
+            exit();
         } else {
             echo "Registration failed. Please try again.";
         }

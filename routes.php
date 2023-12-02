@@ -7,6 +7,7 @@ get('/','View/Home/index.php');
 post('/','View/Home/index.php');
 
 get('/contact','View/Contact/contact.php');
+post('/contact','View/Contact/contact.php');
 
 get('/register','View/Register/register.php');
 

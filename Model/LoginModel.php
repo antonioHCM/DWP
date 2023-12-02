@@ -20,13 +20,15 @@ class LoginModel {
        
         if ($user && password_verify($password, $user['passwords'])) {
             // Password is correct, return the user data
-            if (isset($user['id'])) {
-                $_SESSION['user_id'] = $user['id'];
+            if (isset($user['userID'])) {
+                $_SESSION['user_ID'] = $user['userID'];
             }
-            if (isset($user['user'])) {
-                $_SESSION['user'] = $user['user'];
+            if (isset($user)) {
+                $_SESSION['user'] = $user;
             }
+            var_dump($_SESSION);
             return $user;
+
         } else {
             // Invalid login credentials
             
