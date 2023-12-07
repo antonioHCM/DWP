@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add to Cart</title>
+    <link rel="stylesheet" href="/View/ShoppingCart/styles.css">
     <!-- Include your stylesheets and other head content here -->
 </head>
 <body>
@@ -41,9 +42,14 @@
     require_once 'Controller/ShoppingCartController.php';          
     require_once 'Controller/ProductController.php';
 
+    if(!filter_input(INPUT_POST, "quantity", FILTER_VALIDATE_INT))
+    {
+        die('vai-tefoder');
+    }
+
     $db = new DBConnector();    
     $controller = new ShoppingCartController($db);
-    $controller->addToCart($_POST['product_id'], 1);
+    $controller->addToCart($_POST['product_id'], $_POST['quantity']);
     $controller->closeConnection();
 
     $controller = new ProductController();
@@ -54,10 +60,10 @@
     // Check if $product is set and not null
     if (isset($product) && $product !== null) {
         echo '<p>Product added to cart:</p>';
-        echo '<p>Name: ' . $product['productName'] . '</p>';
+        echo '<p>Name: ' . htmlspecialchars($product['productName']) . '</p>';
         echo '<p>Brand: ' . $product['brand'] . '</p>';
         echo '<p>Price: $' . $product['price'] . '</p>';
-        echo '<p>Quantity: ' . $productQuantity . '</p>';
+        echo '<p>Quantity: ' . htmlspecialchars($_POST['quantity']) . '</p>';
         // Add more details as needed
     } else {
         echo '<p>No product information available.</p>';

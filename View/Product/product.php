@@ -44,8 +44,8 @@
 
     foreach ($products as $product) {
         echo '<div class="product">';
-        echo '<img src="' . $product['img'] . '" alt="' . $product['productName'] . '">';
-        echo '<h2>' . $product['productName'] . '</h2>';
+        echo '<img src="' . $product['img'] . '" alt="' . htmlspecialchars($product['productName']) . '">';
+        echo '<h2>' . htmlspecialchars($product['productName']) . '</h2>';
         echo '<p class="category">Category: ' . $product['categoryName'] . '</p>';
         echo '<p class="brand">Brand: ' . $product['brand'] . '</p>';
         echo '<p class="stock">Stock Quantity: ' . $product['stockQuantity'] . '</p>';
@@ -54,6 +54,7 @@
         // Add to Cart button
         echo '<form action="/add-to-cart" method="post">';
         echo '<input type="hidden" name="product_id" value="' . $product['productID'] . '">';
+        echo '<input type="number" name="quantity" value="1">';
         echo '<button type="submit" class="buy-btn">Add to Cart</button>';
         echo '</form>';
         echo '</div>';

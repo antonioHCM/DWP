@@ -21,10 +21,7 @@ class ShoppingCartController {
 
         // Assuming you have a method to get the user's cart ID, modify this as needed
         $userID = $_SESSION['user']['userID'];
-        $cartID = $this->model->getUserCartId($userID);
-         if($this->model){
-
-         }
+        $cartID = $this->getOrCreateCart($userID);
         $this->addOrUpdateCart($cartID, $productID, $quantity);
     }
 
