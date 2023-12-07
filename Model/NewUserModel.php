@@ -21,7 +21,7 @@ class NewUserModel {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT, $iterations);
 
         $statement = "INSERT INTO User (firstName, lastName, passwords, email, admin) VALUES (:firstname, :lastname, :passwords, :email, :admin)";
-        $handle = $this->db->db->prepare($statement);
+        $handle = $this->db->prepare($statement);
 
         // Bind params
         $handle->bindParam(':firstname', $firstName);
@@ -37,7 +37,7 @@ class NewUserModel {
     
     private function isEmailTaken($email) {
         $statement = "SELECT COUNT(*) FROM User WHERE email = :email";
-        $handle = $this->db->db->prepare($statement);
+        $handle = $this->db->prepare($statement);
         $handle->bindParam(':email', $email);
         $handle->execute();
 

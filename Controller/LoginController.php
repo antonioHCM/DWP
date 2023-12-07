@@ -1,5 +1,6 @@
 <?php
 require_once 'Model/LoginModel.php'; 
+require_once 'Model/Redirector.php'; 
 class LoginController {
     private $loginModel;
 
@@ -14,6 +15,7 @@ class LoginController {
             if ($userData) {
                 // Login successful
                 echo "You are logged in!";
+                $redirect = new Redirector("/product");
                 return $userData;
                 
             } else {

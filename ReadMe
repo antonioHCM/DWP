@@ -1,5 +1,3 @@
-Hej Kim, hej Soren 
-
 To run the solution you might need to change your HTTPD-VHOSTS.CONFIG file: 
 
 # Virtual Hosts
@@ -14,9 +12,3 @@ To run the solution you might need to change your HTTPD-VHOSTS.CONFIG file:
     Require local
   </Directory>
 </VirtualHost>
-
-Notes:
-About the project, I'm currently working on the Log in usecase but its not working yet. Other than that
-my next steps are improving the frontend and add a product picture to my Products table and display it in the productView.
-My address table might need some tweaks since I am having trouble implementing it, for now it will be just filled in by the user,
-later on I will take out the street field and get the danish postcodes. 

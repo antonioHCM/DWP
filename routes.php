@@ -10,12 +10,13 @@ get('/contact','View/Contact/contact.php');
 post('/contact','View/Contact/contact.php');
 
 get('/register','View/Register/register.php');
-
 post('/register','View/Register/register.php');
 
+get('/login','View/Login/login.php');
 post('/login','View/Login/login.php');
 
-get('/login','View/Login/login.php');
+get('/view-cart','View/ShoppingCart/viewCart.php');
+post('/add-to-cart','View/ShoppingCart/addToCart.php');
 
 get('/product','View/Product/product.php');
 

@@ -22,6 +22,11 @@ class ProductController {
         require "View/Product/product.php";
     }
 
+    function getProductById($productID) {
+        $product = $this->model->getProductById($productID);
+        return $product;
+    }
+
     function closeConnection() {
         $this->model->closeConnection();
     }

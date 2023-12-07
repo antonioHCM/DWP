@@ -23,6 +23,10 @@ class DBConnector {
     function prepare($statement) {
         return $this->db->prepare($statement);
     }
+
+    function lastInsertId() {
+        return $this->db->lastInsertId();
+    }
 }
 
 ?>

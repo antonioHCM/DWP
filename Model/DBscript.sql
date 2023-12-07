@@ -38,32 +38,28 @@ CREATE TABLE Product(
     img VARCHAR(200)
 )ENGINE=InnoDB;
 
-CREATE TABLE `Order`(
-    orderID INT AUTO_INCREMENT NOT NULL  PRIMARY KEY,
-    orderAmount INT,
-    currentStatus VARCHAR(50),
-    orderDate DATE
-)ENGINE=InnoDB;
+CREATE TABLE ShoppingCart (
+    cartID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    userID INT,
+    FOREIGN KEY (userID) REFERENCES User (userID)
+) ENGINE=InnoDB;
 
 CREATE TABLE Payment(
     paymentID INT AUTO_INCREMENT NOT NULL  PRIMARY KEY,
-    orderID INT,
-    FOREIGN KEY (orderID) REFERENCES `Order` (orderID),
+    cartID   INT,
+    FOREIGN KEY (cartID) REFERENCES `ShoppingCart` (cartID),
     paymentsType VARCHAR(50),
     paymentDate DATE
 )ENGINE=InnoDB;
 
-CREATE TABLE OrderItem(
-    orderItemID INT AUTO_INCREMENT NOT NULL  PRIMARY KEY,
-    orderID INT,
-    FOREIGN KEY (orderID) REFERENCES `Order` (orderID),
-    userID INT,
-    FOREIGN KEY (userID) REFERENCES `User` (userID),
+CREATE TABLE CartItem (
+    cartItemID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    cartID INT,
+    FOREIGN KEY (cartID) REFERENCES ShoppingCart (cartID),
     productID INT,
     FOREIGN KEY (productID) REFERENCES Product (productID),
-    price FLOAT NOT NULL,
     quantity INT NOT NULL
-)ENGINE=InnoDB;
+) ENGINE=InnoDB;
 
 CREATE TABLE Review(
     reviewID INT AUTO_INCREMENT NOT NULL  PRIMARY KEY,

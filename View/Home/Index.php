@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="View/Home/styles.css">
 </head>
 <body>
-
 <header>
     <h1>Fruit Shop</h1>
     <nav>
@@ -16,9 +15,21 @@
         <a href="register">Register</a>
         <a href="aboutus">About Us</a>
         <a href="contact">Contact</a>
+        <a id="navUsername">
+            <?php
+            require_once 'Model/SessionHandle.php';
+            $session = new SessionHandle();
+
+            // Check if the user is logged in
+            if ($session->logged_in()) {
+                // Display user
+                echo 'Welcome, ' . $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'];
+            } else {
+                $redirect = new Redirector("/login");
+            }
+            ?>
+        </a>
     </nav>
-    <form method="post">
-        <button type="submit" name="register" class="register-btn">Register</button>
 </header>
 
 <section class="hero">

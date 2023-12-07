@@ -21,6 +21,20 @@ class ProductModel {
         }
         return null;
     }
+    function getProductById($productId) {
+        if ($this->db !== null) {
+            $query = 'SELECT Product.productID, Category.categoryName, Product.productName, Product.brand, Product.stockQuantity, Product.price, Product.description, Product.img
+                FROM Product
+                JOIN Category ON Product.categoryID = Category.categoryID
+                WHERE Product.productID = :productId';
+            $statement = $this->db->prepare($query);
+            $statement->bindParam(':productId', $productId, PDO::PARAM_INT);
+            $statement->execute();
+
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        }
+        return null;
+    }
 
     function getFeaturedProducts() {
         if ($this->db !== null) {

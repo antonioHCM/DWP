@@ -3,23 +3,31 @@ body {
     margin: 20px;
 }
 
-nav {
+header {
     background-color: #333;
-    overflow: hidden;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+    color: #fff;
     text-decoration: none;
+    margin-left: 15px;
 }
 
-nav a:hover {
-    background-color: #ddd;
-    color: black;
+#navUsername {
+    margin-left: auto !important;
+    font-weight: bold !important;
+    color: #3267d1 !important; /* not working */
 }
 
 .product-container {
