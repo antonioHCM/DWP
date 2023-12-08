@@ -16,6 +16,8 @@ get('/login','View/Login/login.php');
 post('/login','View/Login/login.php');
 
 get('/view-cart','View/ShoppingCart/viewCart.php');
+post('/view-cart','View/ShoppingCart/viewCart.php');
+
 post('/add-to-cart','View/ShoppingCart/addToCart.php');
 
 get('/product','View/Product/product.php');

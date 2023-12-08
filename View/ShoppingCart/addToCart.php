@@ -58,17 +58,25 @@
 
 
     // Check if $product is set and not null
+    
     if (isset($product) && $product !== null) {
+        echo '<div class="product-container">';
         echo '<p>Product added to cart:</p>';
+        echo '<img src="' . $product['img'] . '" alt="Product Image">';
         echo '<p>Name: ' . htmlspecialchars($product['productName']) . '</p>';
-        echo '<p>Brand: ' . $product['brand'] . '</p>';
-        echo '<p>Price: $' . $product['price'] . '</p>';
+        echo '<p>Brand: ' . htmlspecialchars($product['brand']) . '</p>';
+        echo '<p>Price: $' . htmlspecialchars($product['price']) . '</p>';
         echo '<p>Quantity: ' . htmlspecialchars($_POST['quantity']) . '</p>';
         // Add more details as needed
+        echo '</div>';
     } else {
         echo '<p>No product information available.</p>';
     }
     ?>
+    <div class="button-container">
+        <a href="/product" class="back-button">Back to Product Page</a>
+        <a href="/view-cart" class="view-cart-button">View Cart</a>
+    </div>
 </div>
 
 </body>

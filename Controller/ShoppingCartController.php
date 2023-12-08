@@ -59,6 +59,11 @@ class ShoppingCartController {
         }
     }
 
+    public function deleteItem($cartItemID) {
+        $this->model->deleteCartItem($cartItemID);
+        
+    }
+
     function closeConnection() {
         $this->model->closeConnection();
     }

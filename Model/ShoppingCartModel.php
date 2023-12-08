@@ -23,7 +23,10 @@ class ShoppingCartModel {
     }
 
     public function getCartItems($cartId) {
-        $statement = "SELECT c.cartItemID, p.productName, p.price, c.quantity FROM CartItem c JOIN Product p ON c.productID = p.productID WHERE c.cartID = :cartID";
+        $statement = "SELECT c.cartItemID, p.productName, p.price, c.quantity, p.img 
+        FROM CartItem c 
+        JOIN Product p ON c.productID = p.productID 
+        WHERE c.cartID = :cartID";
         $handle = $this->db->prepare($statement);
         $handle->bindParam(':cartID', $cartId);
         $handle->execute();
@@ -90,6 +93,13 @@ class ShoppingCartModel {
         $handle->bindParam(':cartID', $cartID);
         $handle->bindParam(':productID', $productID);
         $handle->bindParam(':quantity', $quantity);
+        $handle->execute();
+    }
+
+    public function deleteCartItem ($cartItemID) {
+        $statement = "DELETE FROM CartItem WHERE cartItemID = :cartItemID";
+        $handle = $this->db->prepare($statement);
+        $handle->bindParam(':cartItemID', $cartItemID);
         $handle->execute();
     }
 

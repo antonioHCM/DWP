@@ -38,17 +38,38 @@
     <?php
     require_once 'Controller/ShoppingCartController.php';
     
+    
+
+    
     $db = new DBConnector();
     $shoppingCart = new ShoppingCartController($db);
+    
+
+    if(isseT($_POST['cartItemID'])) {
+    $shoppingCart->deleteItem($_POST['cartItemID']);
+    }
+    
     $cartItems = $shoppingCart->getCartItems();
     
     if (!empty($cartItems)) {
         // Display the contents of the shopping cart
         foreach ($cartItems as $cartItem) {
-            echo '<p>Product: ' . $cartItem['productName'] . '</p>';
-            echo '<p>Price: $' . $cartItem['price'] . '</p>';
-            echo '<p>Quantity: ' . $cartItem['quantity'] . '</p>';
-            // Add more details as needed
+            echo '<div class="cart-item">';
+            echo '<img src="' . $cartItem['img'] . '" alt="Product Image">';
+            echo '<p>Product: ' . htmlspecialchars($cartItem['productName']) . '</p>';
+            echo '<p>Price: $' . htmlspecialchars($cartItem['price']) . '</p>';
+            echo '<p>Quantity: ' . htmlspecialchars($cartItem['quantity']) . '</p>';
+            var_dump($cartItem);
+            
+        
+            // Cancel button for each product
+            echo '<form method="post" action="/view-cart">';
+            echo '<input type="hidden" name="cartItemID" value="' . htmlspecialchars($cartItem['cartItemID']) . '">';
+            echo '<input type="submit" value="Cancel">';
+            echo '</form>';
+           
+
+            echo '</div>';
         }
     } else {
         echo '<p>Your cart is empty.</p>';
