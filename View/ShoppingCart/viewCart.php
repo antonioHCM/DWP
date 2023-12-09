@@ -75,6 +75,10 @@
         echo '<p>Your cart is empty.</p>';
     }
     ?>
+    <div class="button-container">
+        <a href="/product" class="back-button">Back to Product Page</a>
+        
+    </div>
 </div>
 
 </body>

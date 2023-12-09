@@ -9,7 +9,7 @@ class NewUserModel {
         $this->db = $db;
     }
 
-    public function createUser($firstName, $lastName, $password, $email, $admin) {
+    public function createUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin) {
         // Check if the email already exists
         if ($this->isEmailTaken($email)) {
             echo"Email is already in use.  ";
@@ -20,7 +20,7 @@ class NewUserModel {
         $iterations = ['cost' => 15];
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT, $iterations);
 
-        $statement = "INSERT INTO User (firstName, lastName, passwords, email, admin) VALUES (:firstname, :lastname, :passwords, :email, :admin)";
+        $statement = "INSERT INTO User (firstName, lastName, passwords, email, postalCode, city, street, country, admin) VALUES (:firstname, :lastname, :passwords, :email, :postalcode, :city, :street, :country, :admin)";
         $handle = $this->db->prepare($statement);
 
         // Bind params
@@ -28,6 +28,10 @@ class NewUserModel {
         $handle->bindParam(':lastname', $lastName);
         $handle->bindParam(':passwords', $hashedPassword); 
         $handle->bindParam(':email', $email);
+        $handle->bindParam(':postalcode', $postalCode);
+        $handle->bindParam(':city', $city);
+        $handle->bindParam(':street', $street);
+        $handle->bindParam(':country', $country);
         $handle->bindParam(':admin', $admin);
 
         

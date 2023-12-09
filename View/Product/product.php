@@ -16,12 +16,18 @@
         <a href="register">Register</a>
         <a href="aboutus">About Us</a>
         <a href="contact">Contact</a>
+        <?php 
+        require_once 'Model/SessionHandle.php';
+        $session = new SessionHandle();
+        
+        if (isset($_SESSION['user']['admin']) && $_SESSION['user']['admin'] === '1') {
+            echo '<a href="/adminPanel">Admin Panel</a>';
+        }
+        ?>
         <a id="navUsername">
             <?php
-            require_once 'Model/SessionHandle.php';
-            $session = new SessionHandle();
+            
 
-            // Check if the user is logged in
             if ($session->logged_in()) {
                 // Display user
                 echo 'Welcome, ' . $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'];
@@ -32,6 +38,9 @@
         </a>
     </nav>
 </header>
+<div class="view-cart-link">
+    <a href="/view-cart">View Cart</a>
+</div>
 
 <div id="product-container" class="product-container">
 
@@ -44,16 +53,16 @@
 
     foreach ($products as $product) {
         echo '<div class="product">';
-        echo '<img src="' . $product['img'] . '" alt="' . htmlspecialchars($product['productName']) . '">';
+        echo '<img src="' . htmlspecialchars($product['img']) . '" alt="' . htmlspecialchars($product['productName']) . '">';
         echo '<h2>' . htmlspecialchars($product['productName']) . '</h2>';
-        echo '<p class="category">Category: ' . $product['categoryName'] . '</p>';
-        echo '<p class="brand">Brand: ' . $product['brand'] . '</p>';
-        echo '<p class="stock">Stock Quantity: ' . $product['stockQuantity'] . '</p>';
-        echo '<p class="price">Price: $' . $product['price'] . '</p>';
-        echo '<p class="description">' . $product['description'] . '</p>';
+        echo '<p class="category">Category: ' . htmlspecialchars($product['categoryName']) . '</p>';
+        echo '<p class="brand">Brand: ' . htmlspecialchars($product['brand']) . '</p>';
+        echo '<p class="stock">Stock Quantity: ' . htmlspecialchars($product['stockQuantity']) . '</p>';
+        echo '<p class="price">Price: $' . htmlspecialchars($product['price']) . '</p>';
+        echo '<p class="description">' . htmlspecialchars($product['description']) . '</p>';
         // Add to Cart button
         echo '<form action="/add-to-cart" method="post">';
-        echo '<input type="hidden" name="product_id" value="' . $product['productID'] . '">';
+        echo '<input type="hidden" name="product_id" value="' . htmlspecialchars($product['productID']) . '">';
         echo '<input type="number" name="quantity" value="1">';
         echo '<button type="submit" class="buy-btn">Add to Cart</button>';
         echo '</form>';
@@ -63,10 +72,6 @@
 
 </div>
 
-<!-- View Cart Link -->
-<div class="view-cart-link">
-    <a href="/view-cart">View Cart</a>
-</div>
 
 </body>
 </html>

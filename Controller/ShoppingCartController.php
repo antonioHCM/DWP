@@ -38,7 +38,7 @@ class ShoppingCartController {
         $userID = $_SESSION['user']['userID'];
         $cartID = $this->getOrCreateCart($userID);
 
-        var_dump($cartID);
+        
         return $this->model->getCartItems($cartID);
     }
     private function getOrCreateCart($userID) {

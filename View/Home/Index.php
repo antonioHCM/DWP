@@ -38,7 +38,7 @@
 </section>
 
 <div id="product-container">
-    <h2>Try Some of Our Pits, Register to See More...</h2>
+    <h2>Our featured product this week are Pits, Register to See More...</h2>
     <div class="featured-products-container">
         <?php
         require_once 'Controller/ProductController.php';

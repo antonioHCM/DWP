@@ -2,13 +2,6 @@ DROP DATABASE IF  EXISTS FruitShopDB;
 CREATE DATABASE FruitShopDB;
 USE FruitShopDB;
 
-CREATE TABLE Address (
-    postalCode INT NOT NULL PRIMARY KEY,
-    city VARCHAR(50),
-    street VARCHAR(150),
-    country VARCHAR(50)
-) ENGINE=InnoDB;
-
 CREATE TABLE User (
     userID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     postalCode INT,
@@ -16,14 +9,17 @@ CREATE TABLE User (
     lastName VARCHAR(50),
     passwords VARCHAR(150),
     email VARCHAR(100),
-    admin BIT,
-    FOREIGN KEY (postalCode) REFERENCES Address(postalCode)
+    city VARCHAR(50),
+    street VARCHAR(150),
+    country VARCHAR(50),
+    admin TINYINT(1)
 ) ENGINE=InnoDB;
 
 CREATE TABLE Category(
     categoryID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     categoryName VARCHAR(50),
-    description TEXT
+    description TEXT,
+    featuredCategory TINYINT (1)
 )ENGINE=InnoDB;
 
 CREATE TABLE Product(
@@ -72,11 +68,7 @@ CREATE TABLE Review(
     reviewContent TEXT NOT NULL
 )ENGINE=InnoDB;
 
-insert into Address (postalCode, city, street, country) values ('3007', 'Bahay Pare', 'Carberry', 'Philippines');
-insert into Address (postalCode, city, street, country) values ('08-420', 'Miastków Kościelny', 'Sullivan', 'Poland');
-insert into Address (postalCode, city, street, country) values ('311-4317', 'Ashibetsu', 'Harbort', 'Japan');
-insert into Address (postalCode, city, street, country) values ('23501', 'Uusikaupunki', 'Everett', 'Finland');
-insert into Address (postalCode, city, street, country) values ('904-2244', 'Okinawa', 'Pine View', 'Japan');
+
 
 
 insert into User (postalCode, firstName, lastName, passwords, email, admin) values ('08-420', 'Sandie', 'Oleksiak', 'oR5,w''m\tvg', 'soleksiak0@123-reg.co.uk', false);

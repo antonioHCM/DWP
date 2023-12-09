@@ -8,9 +8,9 @@ class NewUserController {
         $this->userModel = new NewUserModel($db); 
     }
 
-    public function registerUser($firstName, $lastName, $password, $email, $admin) {
+    public function registerUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin) {
         try {
-            return $this->userModel->createUser($firstName, $lastName, $password, $email, $admin);
+            return $this->userModel->createUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin);
         } catch (PDOException $e) {
             //Database errors 
             echo 'Registration failed due to a database error: ' . $e->getMessage();
@@ -28,9 +28,13 @@ class NewUserController {
         $lastName = $_POST['lastName'];
         $password = $_POST['password'];
         $email = $_POST['email'];
+        $postalCode = $_POST['postalCode'];
+        $city = $_POST['city'];
+        $street = $_POST['street'];
+        $country = $_POST['country'];
         $admin = $_POST['admin'];
 
-        $registrationResult = $this->registerUser($firstName, $lastName, $password, $email, $admin);
+        $registrationResult = $this->registerUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin);
 
         if ($registrationResult) {
             echo "Registration successful!";

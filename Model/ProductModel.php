@@ -41,7 +41,7 @@ class ProductModel {
             $query = 'SELECT Product.productID, Category.categoryName, Product.productName, Product.brand, Product.stockQuantity, Product.price, Product.description, Product.img
                 FROM Product
                 JOIN Category ON Product.categoryID = Category.categoryID
-                WHERE Product.categoryID = 2
+                WHERE Category.featuredCategory = 1
                 LIMIT 2';
             $statement = $this->db->prepare($query);
             $statement->execute();
