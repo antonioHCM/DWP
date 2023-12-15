@@ -15,33 +15,39 @@
         <a href="register">Register</a>
         <a href="aboutus">About Us</a>
         <a href="contact">Contact</a>
-        <a id="navUsername">
-            <?php
-            require_once 'Model/SessionHandle.php';
-            $session = new SessionHandle();
-
-            // Check if the user is logged in
-            if ($session->logged_in()) {
-                // Display user
-                echo 'Welcome, ' . $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'];
-            } else {
-                $redirect = new Redirector("/login");
-            }
-            ?>
+        
         </a>
     </nav>
 </header>
 
+
 <section class="hero">
-    <h2>Welcome to Our Fruit Shop</h2>
-    <p>Discover Fresh and Delicious Fruits</p>
+<h2>Welcome to Our Fruit Shop</h2>
+<p><?php
+
+    require_once __DIR__.'/../../Controller/AdminController.php';
+
+    $db = new DBConnector();
+
+    $adminController = new AdminController($db);
+    $infoID = 'News';
+    $news = $adminController->getInfoByID($infoID); 
+    
+    if (!empty($news)) {
+        echo '<h2>' . htmlspecialchars($news['content']) . '</h2>';
+    } else {
+        echo 'No information available.';
+    }
+
+    
+?></p>
 </section>
 
 <div id="product-container">
-    <h2>Our featured product this week are Pits, Register to See More...</h2>
+    <h2>Our featured product this week, Register to See More...</h2>
     <div class="featured-products-container">
         <?php
-        require_once 'Controller/ProductController.php';
+        require_once __DIR__.'/../../Controller/ProductController.php';
 
         if (isset($_POST['register'])) {
             // Redirect to the register page
@@ -68,9 +74,7 @@
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2023 Fruit Shop</p>
-</footer>
+
 
 </body>
 </html>

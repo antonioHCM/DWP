@@ -1,6 +1,6 @@
 <?php
 
-require_once "Model/ProductModel.php";
+require_once __DIR__."/../Model/ProductModel.php";
 
 class ProductController {
     private $model;
@@ -27,9 +27,24 @@ class ProductController {
         return $product;
     }
 
+    function updateProduct ($productID, $categoryID, $productName, $brand, $stockQuantity, $price, $description, $img){
+        $this->model->updateProduct($productID, $categoryID, $productName, $brand, $stockQuantity, $price, $description, $img);
+    }
+
+    public function deleteProduct($productId){
+        $this->model->deleteProduct($productId);
+    }
+    
+    public function createProduct($categoryID, $productName, $brand, $stockQuantity, $price, $description, $img){
+        $this->model->createProduct($categoryID, $productName, $brand, $stockQuantity, $price, $description, $img);
+        
+    }
+
     function closeConnection() {
         $this->model->closeConnection();
     }
+
+    
 }
 
 ?>

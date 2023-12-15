@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Model/AdminModel.php';
+require_once __DIR__.'/../Model/AdminModel.php';
 
 class AdminController {
     private $model;
@@ -16,6 +16,23 @@ class AdminController {
     public function setFeaturedCategory($categoryID) {
         $this->model->setFeaturedCategory($categoryID);
     }
+
+    public function getInfo(){
+        
+       return $this->model->getInfo();
+    }
+
+    public function setInfo($infoID,$content) {
+        return $this->model->setInfo($infoID, $content);
+    }
+
+    function getInfoByID($infoID) {
+        $content = $this->model->getInfoByID($infoID);
+        return $content;
+    }
+    public function closeConnection() {
+        $this->model->closeConnection();
+   }
 }
 
 

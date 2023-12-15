@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Model/CategoryModel.php';
+require_once __DIR__.'/../Model/CategoryModel.php';
 
 class CategoryControlller {
     private $model;

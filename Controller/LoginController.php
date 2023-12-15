@@ -1,6 +1,6 @@
 <?php
-require_once 'Model/LoginModel.php'; 
-require_once 'Model/Redirector.php'; 
+require_once __DIR__.'/../Model/LoginModel.php'; 
+require_once __DIR__.'/../Model/Redirector.php'; 
 class LoginController {
     private $loginModel;
 
@@ -14,8 +14,9 @@ class LoginController {
 
             if ($userData) {
                 // Login successful
-                echo "You are logged in!";
                 $redirect = new Redirector("/product");
+                echo "You are logged in!";
+                
                 return $userData;
                 
             } else {

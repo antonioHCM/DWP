@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DataAccess/DBconnector.php';
+require_once __DIR__.'/../DataAccess/DBconnector.php';
 
 class LoginModel {
     private $db;
@@ -22,7 +22,7 @@ class LoginModel {
             $_SESSION['user_ID'] = $user['userID'];
             $_SESSION['user'] = $user;
             
-            var_dump($_SESSION);
+            
             return $user;
         } else {
             // Invalid login credentials

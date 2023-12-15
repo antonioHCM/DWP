@@ -1,6 +1,6 @@
 <?php
-    require_once 'DataAccess/DBconnector.php'; 
-    require_once 'Controller/NewUserController.php'; 
+    require_once __DIR__.'/../../DataAccess/DBconnector.php'; 
+    require_once __DIR__.'/../../Controller/NewUserController.php'; 
 
     if (isset($_POST)) {
         $db = new DBConnector();
@@ -34,9 +34,6 @@
 
     <label for="email">Email:</label>
     <input type="email" name="email" id="email" required>
-
-    <label for="postalCode">Postal Code:</label>
-    <input type="text" name="postalCode" id="postalCode" required>
 
     <label for="city">City:</label>
     <input type="text" name="city" id="city" required>

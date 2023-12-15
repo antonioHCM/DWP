@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Model/ShoppingCartModel.php';
-require_once 'Model/SessionHandle.php'; 
+require_once __DIR__.'/../Model/ShoppingCartModel.php';
+require_once __DIR__.'/../Model/SessionHandle.php'; 
 
 class ShoppingCartController {
     

@@ -1,5 +1,5 @@
 <?php
-require_once 'Model/NewUserModel.php'; 
+require_once __DIR__.'/../Model/NewUserModel.php'; 
 
 class NewUserController {
     private $userModel;
@@ -8,9 +8,9 @@ class NewUserController {
         $this->userModel = new NewUserModel($db); 
     }
 
-    public function registerUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin) {
+    public function registerUser($firstName, $lastName, $password, $email, $city, $street, $country, $admin) {
         try {
-            return $this->userModel->createUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin);
+            return $this->userModel->createUser($firstName, $lastName, $password, $email, $city, $street, $country, $admin);
         } catch (PDOException $e) {
             //Database errors 
             echo 'Registration failed due to a database error: ' . $e->getMessage();
@@ -28,17 +28,17 @@ class NewUserController {
         $lastName = $_POST['lastName'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $postalCode = $_POST['postalCode'];
         $city = $_POST['city'];
         $street = $_POST['street'];
         $country = $_POST['country'];
         $admin = $_POST['admin'];
 
-        $registrationResult = $this->registerUser($firstName, $lastName, $password, $email, $postalCode, $city, $street, $country, $admin);
+        $registrationResult = $this->registerUser($firstName, $lastName, $password, $email, $city, $street, $country, $admin);
 
         if ($registrationResult) {
-            echo "Registration successful!";
             header("Location: /login");
+            echo "Registration successful!";
+            
             exit();
         } else {
             echo "Registration failed. Please try again.";

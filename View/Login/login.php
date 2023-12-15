@@ -1,6 +1,6 @@
 <?php
-    require_once 'DataAccess/DBconnector.php'; 
-    require_once 'Controller/LoginController.php'; 
+    require_once __DIR__.'/../../DataAccess/DBconnector.php'; 
+    require_once __DIR__.'/../../Controller/LoginController.php'; 
 
     if (isset($_POST)) {
         $db = new DBConnector();

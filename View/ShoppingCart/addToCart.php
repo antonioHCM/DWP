@@ -1,3 +1,11 @@
+<?php 
+        require_once __DIR__.'/../../Model/SessionHandle.php';
+        $session = new SessionHandle();
+        
+       if(!$session->logged_in()){
+            $redirect = new Redirector("/login");
+        }
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +25,18 @@
         <a href="register">Register</a>
         <a href="aboutus">About Us</a>
         <a href="contact">Contact</a>
+        <?php
+             if (isset($_SESSION['user']['admin']) && $_SESSION['user']['admin'] === '1') {
+                echo '<a href="/adminPanel">Admin Panel</a>';
+            }
+            ?>
         <a id="navUsername">
             <?php
-            require_once 'Model/SessionHandle.php';
-            $session = new SessionHandle();
 
-            // Check if the user is logged in
             if ($session->logged_in()) {
                 // Display user
                 echo 'Welcome, ' . $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'];
-            } else {
-                $redirect = new Redirector("/login");
-            }
+            } 
             ?>
         </a>
     </nav>
@@ -39,12 +47,12 @@
     <?php
  
 
-    require_once 'Controller/ShoppingCartController.php';          
-    require_once 'Controller/ProductController.php';
+    require_once __DIR__.'/../../Controller/ShoppingCartController.php';          
+    require_once __DIR__.'/../../Controller/ProductController.php';
 
     if(!filter_input(INPUT_POST, "quantity", FILTER_VALIDATE_INT))
     {
-        die('vai-tefoder');
+        die('nOPE');
     }
 
     $db = new DBConnector();    

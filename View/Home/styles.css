@@ -35,6 +35,7 @@ nav a.active {
     padding: 50px 0;
     background-color: #f2f2f2;
 }
+
 .register-btn {
     background-color: #4CAF50;
     color: white;
@@ -48,20 +49,32 @@ nav a.active {
 .register-btn:hover {
     background-color: #45a049;
 }
+
 .featured-products-container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     margin-left: 20px;
     align-content: center;
 }
 
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .product {
-    width: 48%;
-    margin-bottom: 20px;
-    margin-left: 20px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    width: 30%; /* Set width to 30% of the screen */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
 }
 
 footer {
@@ -72,4 +85,11 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .product {
+        width: 100%; /* Set width to 100% for smaller screens */
+    }
 }

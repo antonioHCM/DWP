@@ -1,5 +1,5 @@
 <?php
-require_once 'DataAccess\DBconnector.php';
+require_once __DIR__.'/../DataAccess/DBconnector.php';
 class AdminModel{
 
     private $db;
@@ -27,6 +27,39 @@ class AdminModel{
 
         return $statement->fetchColumn();
     }
+
+    public function getInfo() {
+        $query = 'SELECT * FROM Information';
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+        
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function setInfo($infoID, $content) {
+        $query = 'UPDATE Information SET content = :content WHERE infoID = :infoID';
+        $statement = $this->db->prepare($query);
+        $statement->bindParam(':content', $content, PDO::PARAM_STR);
+        $statement->bindParam(':infoID', $infoID, PDO::PARAM_STR);
+
+        $statement->execute();
+
+    }
+
+    public function getInfoById($infoID){
+        $query = 'SELECT content FROM Information 
+        WHERE infoID = :infoID';
+        $statement = $this->db->prepare($query);
+        $statement->bindParam(':infoID', $infoID, PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    function closeConnection() {
+        $this->db = null;
+    }
+
     
     
 }

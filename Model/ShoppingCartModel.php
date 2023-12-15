@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DataAccess/DBConnector.php';
+require_once __DIR__.'/../DataAccess/DBconnector.php';
 
 class ShoppingCartModel {
     private $db;

@@ -2,8 +2,8 @@
 
 require_once __DIR__.'/router.php';
 
-get('/','View/Home/index.php');
-post('/','View/Home/index.php');
+get('/','View/Home/Index.php');
+post('/','View/Home/Index.php');
 
 get('/contact','View/Contact/contact.php');
 post('/contact','View/Contact/contact.php');
@@ -22,6 +22,9 @@ post('/adminPanel','View/AdminPanel/adminPanel.php');
 
 post('/add-to-cart','View/ShoppingCart/addToCart.php');
 
+get('/aboutus','View/AboutUS/aboutUs.php');
+
+get('/logout','View/Login/logout.php');
 
 get('/product','View/Product/product.php');
 

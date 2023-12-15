@@ -1,10 +1,11 @@
 <?php
 
-require_once 'Model/Redirector.php';
+require_once __DIR__.'/../Model/Redirector.php';
 
 class SessionHandle {
     public function __construct() {
-        if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+        if(session_status() !== PHP_SESSION_ACTIVE)
+         session_start();
     }
 
     public function logged_in() {
@@ -16,5 +17,10 @@ class SessionHandle {
             $redirect = new Redirector("/login");
             exit;
         }
+    }
+
+    public function logOut() {
+        session_destroy();
+        $redirect = new Redirector("/");
     }
 }

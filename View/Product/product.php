@@ -1,3 +1,11 @@
+<?php 
+        require_once __DIR__.'/../../Model/SessionHandle.php';
+        $session = new SessionHandle();
+        
+       if(!$session->logged_in()){
+            $redirect = new Redirector("/login");
+        }
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,27 +21,21 @@
     <nav>
         <a href="/">Home</a>
         <a href="login">Login</a>
-        <a href="register">Register</a>
         <a href="aboutus">About Us</a>
         <a href="contact">Contact</a>
-        <?php 
-        require_once 'Model/SessionHandle.php';
-        $session = new SessionHandle();
-        
-        if (isset($_SESSION['user']['admin']) && $_SESSION['user']['admin'] === '1') {
-            echo '<a href="/adminPanel">Admin Panel</a>';
-        }
-        ?>
+        <?php
+             if (isset($_SESSION['user']['admin']) && $_SESSION['user']['admin'] === '1') {
+                echo '<a href="/adminPanel">Admin Panel</a>';
+            }
+            ?>
         <a id="navUsername">
             <?php
-            
 
             if ($session->logged_in()) {
                 // Display user
                 echo 'Welcome, ' . $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'];
-            } else {
-                $redirect = new Redirector("/login");
-            }
+                echo ' <a href="/logout" class="logout-link">Logout</a>';
+            } 
             ?>
         </a>
     </nav>
@@ -45,7 +47,7 @@
 <div id="product-container" class="product-container">
 
     <?php
-    require_once 'Controller/ProductController.php';
+    require_once __DIR__.'/../../Controller/ProductController.php';
 
     $controller = new ProductController();
     $products = $controller->getProducts();

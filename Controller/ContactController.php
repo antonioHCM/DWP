@@ -1,7 +1,7 @@
 <?php
 
-require_once '/Model/ContactModel.php';
-require_once 'View/Contact/contact.php';
+require_once __DIR__.'/..//Model/ContactModel.php';
+require_once __DIR__.'/../View/Contact/contact.php';
 
 class ContactController {
     private $model;
